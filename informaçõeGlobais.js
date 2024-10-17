@@ -9,11 +9,13 @@ async function visualizarInformacoesGlobais() {
     const pessoasNoMundo = (dados.total_pessoas_mundo) / 1e9
     const paragrafo = document.createElement("p")
     const horas = parseInt(dados.tempo_medio)
-    const minutos = Math.round((dados.tempo_medio - horas)
-    * 100)
-    const porcentagemConectada = ((pessoasConectadas /
-    pessoasNoMundo) * 100).toFixed(2)
+    const minutos = Math.round((dados.tempo_medio - horas)* 100)
+    const porcentagemConectada = ((pessoasConectadas /pessoasNoMundo) * 100).toFixed(2)
     const container = document.getElementById("graficos-container")
+    const nomeDasRedes = Object.keys(dados)
+    const quantidadeUsuarios = Object.values(dados)
+    
+    
     container.appendChild(paragrafo)
     
    
@@ -30,8 +32,16 @@ async function visualizarInformacoesGlobais() {
 
     <br> "Isso significa que aproximadamente ${porcentagemConectada}%de pessoas estão conectadas em alguma rede social."
     
-    }
+    async function quantidadeUsuarios() {
+const url = "https://raw.githubusercontent.com/guilhermeonrails/api/main/numero-usuarios.json"
+const res = await fetch(url)
+const dados = await res.json()
 
+console.log(dados)
+}
+quantidadeUsuarios()
+
+}
     visualizarInformacoesGlobais()
 
     {
