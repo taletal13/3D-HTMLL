@@ -44,14 +44,22 @@ import { getCSS } from "./common.js"
                     color: getCSS('--primary-color'),
                     family: getCSS('--font'),
                    size: 30,
-                    }
+                    },
+                    legend: {
+                        font: {
+                        color: getCSS('--primary-color'),
+                        size: 16
+                        }
+
                 },xaxis: {title: {
+                    tickfont: tickConfig,
                     text: 'nome das redes sociais',
                     font: {
                     color: getCSS('--secundary-color')
                     }
                     }
                 }, yaxis: {title: {
+                    tickfont: tickConfig,
                     text: 'bilhões de usuários ativos',
                     font: {
                     color: getCSS('--secundary-color')
